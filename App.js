@@ -1,5 +1,6 @@
 import * as React from "react";
 import { View, Text } from "react-native";
+import Counter from "./src/components/Counter";
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Text>Universal React with Expo</Text>
+      <Counter/>
     </View>
   );
 }

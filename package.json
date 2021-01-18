@@ -1,13 +1,18 @@
 {
   "dependencies": {
     "expo": "~40.0.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/preset-flow": "^7.0.0",
+    "metro-react-native-babel-preset": "^0.53.1"
   },
   "scripts": {
     "start": "expo start",
