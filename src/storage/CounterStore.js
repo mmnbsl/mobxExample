@@ -1,4 +1,9 @@
-import {observable, action} from 'mobx'
+import {observable, action, configure} from 'mobx'
+
+configure({
+    enforceActions : 'observed' // observable'daki değerleri değiştiren metodların başında @action kullanmayı unutursak, o method çalıştığı zaman hata vermesini sağlar
+})
+
 class CounterStore{
     @observable count = 3;
     
