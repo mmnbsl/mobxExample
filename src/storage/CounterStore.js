@@ -1,4 +1,4 @@
-import {observable, action, configure, reaction} from 'mobx'
+import {observable, action, configure, reaction, when} from 'mobx'
 import { Alert } from 'react-native';
 
 configure({
@@ -16,6 +16,10 @@ class CounterStore{
                     alert('Başardın!')
                 }
             }
+        )
+        when( //kullanımı reaction ile aynı tek farklı birinci callBack'teki koşul sağlandığında 2. callBack 1 defa çalışır
+            () => this.count === 7,
+            () => alert('Tek Sefer Çalışır')
         )
     }
 
