@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {View, Button, Text, StyleSheet} from 'react-native';
-import CounterStore from '../storage/CounterStore';
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
+@inject('CounterStore', 'PersonStore')
 @observer
 export default class Counter extends Component {
     render() {
+        const {CounterStore, PersonStore} = this.props
         return (
             <View style = {styles.container}>
                 <Text style={styles.text}>{CounterStore.count}</Text>
@@ -17,6 +18,13 @@ export default class Counter extends Component {
                         title='Increase'
                         onPress = {CounterStore.increase} />
                 </View>
+                <Text>{PersonStore.fullName}</Text>
+                <View>
+                    <Button 
+                        title = 'Change Name'
+                        onPress={PersonStore.changeName}
+                        />
+                </View> 
             </View>
         );
     }

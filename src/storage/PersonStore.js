@@ -6,8 +6,8 @@ configure({
 })
 
 class PersonStore{
-    @observable name = 'null'
-    @observable surName = 'null'
+    @observable name = 'Ahmet'
+    @observable surName = 'Yılmaz'
 
     constructor(){
         autorun(()=>{
