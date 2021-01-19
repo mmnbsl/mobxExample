@@ -12,7 +12,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <Person/>
+      <Counter/>
     </View>
   );
 }

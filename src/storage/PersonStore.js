@@ -1,4 +1,4 @@
-import { action, observable, configure, computed, autorun } from 'mobx'
+import { action, observable, configure, computed, autorun, reaction } from 'mobx'
 import { Alert } from 'react-native'
 
 configure({
