@@ -1,4 +1,5 @@
-import { action, observable, configure, computed } from 'mobx'
+import { action, observable, configure, computed, autorun } from 'mobx'
+import { Alert } from 'react-native'
 
 configure({
     enforceActions : 'observed'
@@ -7,6 +8,12 @@ configure({
 class PersonStore{
     @observable name = 'null'
     @observable surName = 'null'
+
+    constructor(){
+        autorun(()=>{
+            Alert.alert(this.name)
+        })
+    }
 
     @action changeName = () => {
         this.name = 'Mümin';
