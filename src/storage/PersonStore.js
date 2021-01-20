@@ -18,6 +18,7 @@ class PersonStore{
             
         },2000)
     }
+
     @computed get fullName(){
         return `${this.name} ${this.surName}`
     }

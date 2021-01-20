@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.21.1",
     "expo": "~40.0.0",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.3",
