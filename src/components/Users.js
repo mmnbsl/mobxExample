@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, ActivityIndicator } from 'react-native';
 import {inject, observer } from 'mobx-react'
 
 @inject('UsersStore')
@@ -9,10 +9,16 @@ export default class Users extends React.Component {
         const { UsersStore } = this.props
         return (
             <View style = {styles.container}>
-                <Button 
-                    title = {'Get Persons'}
-                    onPress={() => UsersStore.getDataApi()}
+                {UsersStore.loading 
+                ? 
+                <ActivityIndicator size={'large'} />
+                 : 
+                 <Button
+                        title={'Get Persons'}
+                        onPress={() => UsersStore.getDataApi()}
                     />
+                    
+                }
                 <View>{
                     UsersStore.users.map((user, key) => (
                         <View key = {key}>
