@@ -14,11 +14,8 @@ class UsersStore {
                 runInAction(() => {
                     this.users = user
                 })
-            },
-            error =>{
-               runInAction(()=>{
-                   alert(error)
-               })
+            }).catch(error => {
+                alert('error')
             })
     }
     @action fetchUsersSuccess = (user) => {
