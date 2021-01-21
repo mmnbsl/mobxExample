@@ -7,8 +7,17 @@ class UsersStore {
     @computed get getData(){
         return this.users
     }
-    @action getDataApi = () => {
-        axios.get('https://randomuser.me/api/?results=10')
+    @action async getDataApi(){
+
+        try {
+            const { data: { results } } = await axios.get('https://randomuser.me/api/?results=10')
+            runInAction(()=>{
+                this.users = results
+            })
+        } catch (error) {
+            
+        }
+       /*  axios.get('https://randomuser.me/api/?results=10')
             .then(response => response.data.results)
             .then(user => {
                 runInAction(() => {
@@ -16,7 +25,7 @@ class UsersStore {
                 })
             }).catch(error => {
                 alert('error')
-            })
+            }) */
     }
     @action fetchUsersSuccess = (user) => {
         this.users = user
