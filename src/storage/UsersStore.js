@@ -4,12 +4,14 @@ import axios from 'axios'
 class UsersStore {
     @observable users = []
     @observable loading = false;
+    @observable error = '';
 
     @computed get getData(){
         return this.users
     }
     @action async getDataApi(){
         this.loading = true;
+        this.error = ''
         this.users = [] 
         try {
             const { data: { results } } = await axios.get('https://randomuser.me/api/?results=10')
@@ -17,11 +19,11 @@ class UsersStore {
                 this.loading = false;
                 this.users = results
             })
-        } catch (error) {
+        } catch (error) { 
             runInAction(()=>{
                 this.loading = false
+                this.error = error
             })
-            alert('error')
         }
        /*  axios.get('https://randomuser.me/api/?results=10')
             .then(response => response.data.results)

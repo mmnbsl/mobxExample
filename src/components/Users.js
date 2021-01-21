@@ -20,12 +20,20 @@ export default class Users extends React.Component {
                     
                 }
                 <View>{
-                    UsersStore.users.map((user, key) => (
-                        <View key = {key}>
-                            <Text>{user.name.first}</Text>
-                        </View>
-                    ))
-                }</View>
+                    
+                        UsersStore.error 
+                    ?
+                        <Text>{UsersStore.error}</Text>
+                    :
+                        (
+                            UsersStore.users.map((user, key) => (
+                                <View key={key}>
+                                    <Text>{user.name.first}</Text>
+                                </View>
+                            ))
+                        )
+                    }
+                </View>
             </View>
         );
     }
